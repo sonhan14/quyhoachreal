@@ -46,9 +46,7 @@ const Layout = () => {
 
 function App() {
     const location = useLocation();
-    useEffect(() => {
-        pageView(location.pathname + location.search);
-    }, [location]);
+
     const datauser = useSelector((state) => state.account.dataUser);
     const item = [
         {
@@ -146,7 +144,9 @@ function App() {
             ],
         });
     }
-
+    useEffect(() => {
+        pageView(location.pathname + location.search);
+    }, [location]);
     const router = createBrowserRouter(item);
     return <>{<RouterProvider router={router} />}</>;
 }
