@@ -1,0 +1,65 @@
+/* CommentBox.css */
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+  }
+  
+  .comment-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .dropzone {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .selected-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 600px) {
+    .comment-box {
+      padding: 10px;
+    }
+  
+    .comment-input {
+      padding: 8px;
+    }
+  
+    .dropzone {
+      padding: 10px;
+    }
+  
+    .submit-button {
+      padding: 8px 16px;
+    }
+  }
+  

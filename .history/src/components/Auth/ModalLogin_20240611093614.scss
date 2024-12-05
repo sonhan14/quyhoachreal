@@ -1,0 +1,19 @@
+.modal-auth {
+    .modal-auth-container {
+        .btn-auth {
+            display: flex;
+            justify-content: space-between;
+            .btn-register{
+                background-color: #FF4401;
+                color: #fff;
+                width: 48%;
+                height: 60px;
+            }
+            .btn-login{
+                width: 48%;
+                height: 60px;
+            }
+        }
+    }
+   
+}

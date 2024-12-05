@@ -1,0 +1,384 @@
+.news-container {
+    width: 100%;
+    padding: 20px 0;
+    padding-bottom: 100px;
+    background-color: #1E252B;
+    .news-row {
+        .news-col-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .news-hot {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: #262D34;
+                border-radius: 10px;
+                .news-hot-item {
+                    display: flex;
+                    gap: 14px;
+                    align-items: center;
+                    .news-hot-icon {
+                        width: 50px;
+                        height: 50px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #2C353D;
+                        border-radius: 8px;
+                        svg {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    .news-hot-content {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        color: #fff;
+                        gap: 8px;
+                        cursor: pointer;
+                        .news-hot-title {
+                            margin: 0;
+                            font-family: Source Sans Pro;
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 18px;
+                            text-align: left;
+                        }
+
+                        .news-hot-desc {
+                            //styleName: Regular 9;
+                            font-family: Source Sans Pro;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 14px;
+                            text-align: left;
+                            margin: 0;
+                            color: #97989D;
+                        }
+                    }
+                }
+                .active{
+                    background-color: #10B700;
+                    border-radius: 10px;
+                    .news-hot-icon{
+                        background-color: #ffffff;
+                        svg{
+                            fill: #1E252B;
+                        }
+                    }
+                    .news-hot-content{
+                        .news-hot-desc{
+                            color: #C5D0E6;
+                        }
+                    }
+                }
+            }
+
+
+            .tag-oustanding {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: #262D34;
+                border-radius: 10px;
+                .tags-title {
+                    //styleName: SemiBold 16;
+                    font-family: Source Sans Pro;
+                    font-size: 22px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    text-align: left;
+                    color: #fff;
+
+                }
+                .news-hot-item {
+        
+                    display: flex;
+                    gap: 14px;
+                    .news-hot-icon {
+                        width: 50px;
+                        height: 50px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #2C353D;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        .news-hot-icon-img{
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                        }
+                    }
+
+                    .news-hot-content {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        color: #fff;
+                        gap: 8px;
+                        flex: 1;
+                        .news-hot-title {
+                            margin: 0;
+                            font-family: Source Sans Pro;
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 18px;
+                            text-align: left;
+
+                        }
+
+                        .news-hot-desc {
+                            //styleName: Regular 9;
+                            font-family: Source Sans Pro;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 14px;
+                            text-align: left;
+                            margin: 0;
+                            color: #97989D;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        .content-center {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .post-new {
+                width: 100%;
+                display: flex;
+                padding: 15px;
+                gap: 20px;
+                background-color: #262D34;
+                border-radius: 10px;
+                align-items: center;
+                .post-new-avatar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: #2C353D;
+                    .avatar-img{
+                        width: 100% ;
+                        height: 100%;
+                        object-fit: cover; 
+                        border-radius: 10px;
+                        display: flex;
+                        flex-wrap: wrap; 
+                    }
+                }
+                .post-new-input {
+                    width: 450px;
+                    padding: 10px 15px;
+                    outline: none;
+                    border-radius: 6px;
+                    background-color: #2C353D;
+                    color: #858EAD;
+                    border: none;
+                    resize: none; /* Ngăn người dùng thay đổi kích thước thủ công */
+                    overflow: hidden; /* Ẩn thanh cuộn */
+                    min-height: 46px; /* Chiều cao tối thiểu */
+                    height: auto; /* Chiều cao tự động */
+                }
+            
+                .post-new-btn {
+                    width: 100px;
+                    height: 44px;
+                    font-size: 15px;
+                    border-radius: 6px;
+                    background-color: #10B700;
+                    outline: none;
+                    border: none;
+                    color: #FFFFFF;
+                    text-align: center;
+                }
+            }
+
+            .post-item{
+                width: 100%;
+                // display: flex;
+                padding: 20px;
+                gap: 20px;
+                background-color: #262D34;
+                border-radius: 10px;
+                align-items: center;
+                .content-post {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    color: #fff;
+                    .user-post {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .info-user-post {
+                            display: flex;
+                            align-items: center;
+                            gap: 15px;
+                            .avatar-user {
+                                position: relative;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                img{
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 50%;
+                                    background-color: white;
+                                }
+                                .icon-online {
+                                    position: absolute;
+                                    bottom: -6px;
+                                    right: -5px;
+                                    font-size: 20px;
+                                    color: red;
+                                }
+                            }
+                            .info-user {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                gap: 4px;
+
+                                h4{
+                                    font-size: 12px;
+                                    margin: 0;
+                                    text-transform: uppercase;
+                                }
+                                p {
+                                    font-size: 9px;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        .like-post {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            .icon{
+                                fill: #C5D0E6;
+                            }
+                            .icon:hover{
+                                fill: #10B700;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    .title-post {
+                        display: flex;
+                        flex-direction: column;
+                        .post-title,.post-content{
+                            padding: 10px;
+                            margin: 0;
+                        }
+                        .post-title{
+                            font-size: 18px;
+                        }
+                    }
+                    .avatar-post {
+                        color: #fff;
+                        width: 150px;
+                        height: 200px;
+                        border-radius: 10px;
+                        display: flex;
+                        gap: 30px;
+                        img{
+                            width: 100% ;
+                            height: 100%;
+                            object-fit: cover; 
+                            border-radius: 10px;
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                    }
+                    .hagtags-post {
+                        display: flex;
+                        gap: 10px;
+                        .hagtags-pos-item {
+                            background-color: #2C353D;
+                            font-size: 12px;
+                            color:#C5D0E6;
+                            padding: 4px 10px;
+                            border-radius: 20px;
+                        }
+                    }
+
+                    .react-post {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 20px;
+                        p {
+                            margin: 0;
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .content-right {
+            .old-post-right {
+                color: #fff;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                background-color: #262D34;
+                border-radius: 10px;
+                .old-post-title {
+                    h2 {
+                        font-size: 16px;
+                    }
+                }
+
+                .old-post-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    .old-post-avatar {
+                        width: 60px;
+                        height: 60px;
+                        background-color: #2C353D;
+                    }
+
+                    .old-post-content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 6px;
+                        .old-post-content-title {
+                            h2 {
+                                font-size: 12px;
+                                margin: 0;
+                            }
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 10px;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,57 @@
+.modal-auth {
+    .modal-auth-container {
+        .modal-auth-title {
+            font-size: 32px;
+        }
+        .post-new {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            border-radius: 10px;
+            flex-direction: column;
+            .post-new-avatar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: solid 1px #ccc;
+            }
+            .post-new-input {
+                width: 100%;
+                padding: 10px 15px;
+                outline: none;
+                border-radius: 6px;
+                color: #858EAD;
+                border: none;
+                resize: none; /* Ngăn người dùng thay đổi kích thước thủ công */
+                overflow: hidden; /* Ẩn thanh cuộn */
+                min-height: 46px; /* Chiều cao tối thiểu */
+                height: auto; /* Chiều cao tự động */
+            }
+        
+            .post-new-btn {
+                width: 100px;
+                height: 44px;
+                font-size: 15px;
+                border-radius: 6px;
+                background-color: #10B700;
+                outline: none;
+                border: none;
+                color: #FFFFFF;
+            }
+        }
+        .btn-auth {
+            display: flex;
+            justify-content: space-between;
+            
+            .btn-post{
+                border: none;
+                width: 100%;
+                height: 60px;
+            }
+        }
+    }
+   
+}

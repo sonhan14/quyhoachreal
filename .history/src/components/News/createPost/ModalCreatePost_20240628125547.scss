@@ -1,0 +1,67 @@
+.modal-auth {
+    .modal-auth-container {
+        .modal-auth-title {
+            font-size: 32px;
+        }
+        .post-new {
+            width: 100%;
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            background-color: #262D34;
+            border-radius: 10px;
+            align-items: center;
+            flex-direction: column;
+            .post-new-avatar {
+                display: flex;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #2C353D;
+            }
+            .post-new-input {
+                width: 450px;
+                padding: 10px 15px;
+                outline: none;
+                border-radius: 6px;
+                background-color: #2C353D;
+                color: #858EAD;
+                border: none;
+                resize: none; /* Ngăn người dùng thay đổi kích thước thủ công */
+                overflow: hidden; /* Ẩn thanh cuộn */
+                min-height: 46px; /* Chiều cao tối thiểu */
+                height: auto; /* Chiều cao tự động */
+            }
+        
+            .post-new-btn {
+                width: 100px;
+                height: 44px;
+                font-size: 15px;
+                border-radius: 6px;
+                background-color: #10B700;
+                outline: none;
+                border: none;
+                color: #FFFFFF;
+            }
+        }
+        .btn-auth {
+            display: flex;
+            justify-content: space-between;
+            .btn-register{
+                background-color: #FF4401;
+                color: #fff;
+                width: 48%;
+                height: 60px;
+                border: none;
+
+            }
+            .btn-login{
+                border: none;
+                width: 48%;
+                height: 60px;
+            }
+        }
+    }
+   
+}

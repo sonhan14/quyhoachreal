@@ -1,0 +1,137 @@
+// EditProfile.scss
+.edit-profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .edit-profile {
+    background-color: #262D34;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #858EAD;
+    }
+
+    .avatar-container{
+      width: 150px;
+      height: 150px;
+      background-color: #858EAD;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      img{
+        width: 100% ;
+        height: 100%;
+        object-fit: cover; 
+        border-radius: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+      }
+    }
+  
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+  
+      &.full-width {
+        grid-column: 1 / -1;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #858EAD;
+      }
+  
+      input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        // border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        outline: none;
+        color: #666;
+        border: none;
+  
+        &:focus {
+          outline: none;
+        //   border-color: #007bff;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+      }
+  
+      textarea {
+        height: 100px;
+        resize: vertical;
+      }
+    }
+  
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .edit-profile-container {
+      padding: 10px;
+    }
+  
+    .edit-profile {
+      padding: 15px;
+  
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .edit-profile {
+      h2 {
+        font-size: 20px;
+      }
+  
+      .form-group {
+        label {
+          font-size: 14px;
+        }
+  
+        input, textarea, select {
+          font-size: 14px;
+        }
+      }
+  
+      button[type="submit"] {
+        font-size: 16px;
+      }
+    }
+  }

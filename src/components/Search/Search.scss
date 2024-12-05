@@ -1,0 +1,469 @@
+.Planning-container {
+    .Planning {
+        width: 888px;
+        top: -10px;
+        margin-left: 222px;
+        padding: 10px 0px 0px 0px;
+        gap: 10px;
+        display: flex;
+        opacity: 0px;
+
+
+        .Planning-analysis {
+            padding-left: 12px;
+            display: flex;
+            width: 570px;
+            gap: 0px;
+            background-color: #262D34;
+            border-radius: 20px;
+            opacity: 0px;
+            align-items: center;
+
+
+            .Planning-analysis-icon {
+                width: 51.04px;
+            }
+
+            .Planning-analysis-title {
+                color: #B7A800;
+                font-family: Source Sans Pro;
+                font-size: 38px;
+                font-weight: 600;
+                text-align: center;
+
+
+            }
+        }
+
+        button {
+            // height: 12px;
+            border: none;
+            margin-left: 270px;
+            background-color: #1E252B;
+        }
+
+    }
+
+    .Planning-maps {
+        // width: 1116px;
+        width: 100%;
+        margin-top: 10px;
+        background-color: #000000;
+        border: 3.5px solid #000000;
+
+
+        .Planning-maps-item {
+            width: 100%;
+            height: 100%;
+
+            .Planning-maps-one {
+                width: 35%;
+                display: flex;
+                margin-right: 5px;
+            }
+
+            .Planning-maps-two {
+                width: 35%;
+                display: flex;
+                margin-right: 5px;
+            }
+
+            .Planning-maps-father {
+                width: 35%;
+                display: flex;
+            }
+
+        }
+
+    }
+
+    .Planning-search-vector {
+        display: flex;
+        align-items: center;
+
+        .Planning-search {
+            background-color: #2C353D;
+            margin: 20px 0px 0 365px;
+            height: 40px;
+            width: 440px;
+            border-radius: 8px;
+            outline: none;
+            display: flex;
+            align-items: center;
+
+            input {
+                background-color: #2C353D;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                width: 93%;
+                height: 100%;
+                border-radius: 8px;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                color: #858EAD;
+            }
+        }
+
+        button {
+            border: none;
+            background: none;
+        }
+
+        .Planning-vector {
+            padding: 26px 0 0 240px;
+            display: flex;
+
+            .Planning-vector_scrollUp {}
+
+            .Planning-vector_scrollDown {}
+        }
+    }
+
+
+
+    .Planning-table {
+        margin: 6px 0 100px 0;
+        border-collapse: collapse;
+        width: 100%;
+        border: 5px solid #000000;
+
+        .Planning-table_data {
+            width: 100%;
+            color: white;
+        }
+
+        // th {
+
+        // }
+
+        th,
+        td {
+            border: 1px solid #B9B9B9;
+            padding: 8px;
+            text-align: left;
+        }
+    }
+
+
+    .Planning-table th {
+        text-align: center;
+    }
+
+}
+
+.Planning-maps_map {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+}
+
+.Planning-maps_clear {
+    position: absolute;
+    z-index: 1000;
+    margin: 5px 0 0 92%;
+
+    button {
+        border: none;
+        background: none;
+    }
+}
+
+th.Planning-table_th {
+    width: 70px;
+}
+
+.css-13nl15t {
+    top: 60px !important;
+    right: -10px !important;
+    height: 130px !important;
+    z-index: 1000;
+}
+
+.Planning-maps.height-1 {
+    height: 265px;
+    ;
+
+    .Planning-maps-item {
+        display: flex;
+    }
+}
+
+.Planning-maps.height-2 {
+    height: 530px;
+
+    .Planning-maps-item {
+        display: flex;
+    }
+}
+
+.Planning-maps.height-3 {
+    // height: 530px;
+    height: auto;
+
+    .Planning-maps-item {
+        display: block;
+
+        .Planning-maps-one {
+            width: 100%;
+            height: 171px;
+            margin-bottom: 5px;
+
+            .Planning-maps_map {
+                .Planning-maps_clear {
+                    margin: 5px 0 0 97.5%;
+                }
+            }
+        }
+
+        .Planning-maps-two {
+            width: 100%;
+            height: 171px;
+            margin: 0;
+            margin-bottom: 5px;
+
+            .Planning-maps_map {
+                .Planning-maps_clear {
+                    margin: 5px 0 0 97.5%;
+                }
+            }
+
+        }
+
+        .Planning-maps-father {
+            width: 100%;
+            height: 171px;
+
+            .Planning-maps_map {
+                .Planning-maps_clear {
+                    margin: 5px 0 0 97.5%;
+                }
+            }
+        }
+    }
+}
+
+.height-3 {
+    .css-13nl15t {
+        top: 50px !important;
+        height: 95px !important;
+    }
+}
+
+.high-res-image {
+    image-rendering: optimizeQuality;
+    /* Cố gắng tối ưu hóa chất lượng */
+    image-rendering: -webkit-optimize-contrast;
+    /* Dành cho trình duyệt WebKit */
+    image-rendering: crisp-edges;
+    /* Cải thiện độ sắc nét */
+    image-rendering: pixelated;
+    /* Đảm bảo các pixel không bị mờ */
+}
+
+
+
+/* giao diện PC */
+
+@media (min-width: 64em) {}
+
+/* Ta.blet & mobile */
+@media (max-width: 63.9375em) {
+    .container {
+        padding: 0 !important;
+        max-width: 745px !important;
+    }
+
+    .Planning {
+        width: 590px !important;
+        margin-left: 18% !important;
+
+        .Planning-analysis {
+            width: 452px !important;
+
+            .Planning-analysis-title {
+                font-size: 30px !important;
+            }
+        }
+
+        button {
+            display: none;
+        }
+    }
+
+    .Planning-maps_clear {
+        margin: 3px 0 0 96%;
+    }
+
+    .Planning-search {
+        margin: 20px 0px 0 192px !important;
+    }
+
+    .Planning-search input {
+        width: 92% !important;
+    }
+
+    .Planning-vector {
+        padding: 26px 0 0 162px !important;
+    }
+
+    .css-13nl15t {
+        right: -2px !important;
+    }
+
+    .Planning-maps.height-2 {
+        height: 415px !important;
+    }
+
+    .height-3 {
+        .Planning-maps_clear {
+            margin: 5px 0 0 95.5% !important;
+        }
+    }
+
+    .Planning-maps-two,
+    .Planning-maps-father {
+        display: none !important;
+    }
+
+    .Planning-container .Planning-maps .Planning-maps-item .Planning-maps-one {
+        width: 100%;
+        margin: 0;
+    }
+
+}
+
+
+/* giao diện Tablet */
+
+@media (min-width: 46.25em) and (max-width: 63.9375em) {}
+
+/* giao diện Mobile */
+
+@media (max-width: 46.1875em) {
+    .container {
+        padding: 0 5px !important;
+    }
+
+    .Planning {
+        // border: 3px solid #04e325; 336px
+        width: auto !important;
+        margin-left: 19% !important;
+
+        .Planning-analysis {
+            width: 250px !important;
+
+            .Planning-analysis-icon {
+                width: 32px !important;
+
+                svg {
+                    width: 22px !important;
+                    height: 22px !important;
+                }
+            }
+
+
+            .Planning-analysis-title {
+                font-size: 97% !important;
+            }
+        }
+
+        button {
+            display: none;
+        }
+    }
+
+    .Planning-maps.height-1 {
+        height: 240px;
+    }
+
+    .Planning-maps_clear {
+        margin: -4px 0 0 95%;
+
+        button {
+            svg {
+                width: 20px !important;
+                height: 16px !important;
+            }
+        }
+    }
+
+    .leaflet-control-attribution {
+        font-size: 6px;
+    }
+
+    .leaflet-left .leaflet-control {
+        margin-left: 1px;
+    }
+
+    .leaflet-top .leaflet-control {
+        margin-top: 1px;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 16px;
+        height: 16px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .Planning-search {
+        height: 36px !important;
+        margin: 20px 0px 0 82px !important;
+
+        input {
+            width: 90% !important;
+        }
+    }
+
+    .Planning-vector {
+        padding: 26px 5px 0 65px !important;
+    }
+
+    .Planning-search input {
+        font-size: 12px !important;
+    }
+
+    .Planning-search-vector button {
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .css-13nl15t {
+        top: 42px !important;
+        right: -12px !important;
+        height: 56px !important;
+    }
+
+    .css-1q6cf6c-MuiSlider-root {
+        padding: 0 22px;
+    }
+
+    .Planning-vector_scrollUp,
+    .Planning-vector_scrollDown {
+        svg {
+            width: 22px !important;
+            height: 22px !important;
+        }
+    }
+
+    .Planning-table {
+        font-size: 9px !important;
+    }
+
+    .Planning-container .Planning-maps .Planning-maps-item .Planning-maps-one {
+        width: 100%;
+        margin: 0;
+    }
+
+    .Planning-maps-two,
+    .Planning-maps-father {
+        display: none !important;
+    }
+
+}

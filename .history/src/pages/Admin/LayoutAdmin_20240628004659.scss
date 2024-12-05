@@ -1,0 +1,16 @@
+.layout-admin {
+    .header-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
+    .admin-header {
+        height: 50px;
+        border-bottom: 1px solid #ebebeb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+}

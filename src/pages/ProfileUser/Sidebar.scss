@@ -1,0 +1,124 @@
+// Sidebar.scss
+.sidebar {
+    background-color: #262D34;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  
+    &.expanded {
+      width: 240px;
+    }
+  
+    &.collapsed {
+      width: 80px;
+    }
+  
+    .sidebar-content {
+      padding: 20px 0;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+      color: #333;
+  
+      &.active {
+        background-color: #1890ff;
+        color: #fff;
+      }
+  
+      &:hover {
+        background-color: #e6f7ff;
+      }
+  
+      .icon {
+        font-size: 18px;
+        min-width: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .text {
+        margin-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  
+    &.collapsed {
+      button {
+        justify-content: center;
+  
+        .text {
+          display: none;
+        }
+      }
+    }
+  
+    .toggle-btn {
+      position: absolute;
+      top: 10px;
+      right: -15px;
+      z-index: 1000 !important;
+      background-color: #f0f0f0;
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+  
+      &:hover {
+        background-color: #e6f7ff;
+      }
+  
+      .anticon {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      top: 0;
+      left: 0;
+      z-index: 30;
+      
+      &.collapsed {
+        width: 60;
+        overflow: hidden;
+      }
+  
+      .toggle-btn {
+        top: 10px;
+        right: 24px;
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+.modal-auth {
+    .modal-auth-container {
+        .modal-auth-title {
+            font-size: 32px;
+        }
+        .btn-auth {
+            display: flex;
+            justify-content: space-between;
+            .btn-register{
+                background-color: #FF4401;
+                color: #fff;
+                width: 48%;
+                height: 60px;
+                border: none;
+
+            }
+            .btn-login{
+                border: none;
+                width: 48%;
+                height: 60px;
+            }
+        }
+    }
+   
+}

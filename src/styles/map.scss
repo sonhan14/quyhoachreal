@@ -1,0 +1,57 @@
+.leaflet-container {
+    cursor: default;
+}
+.leaflet-grab {
+    cursor: default !important;
+}
+
+.leaflet-dragging .leaflet-grab {
+    cursor: move !important;
+}
+
+.no-background-tooltip.leaflet-tooltip {
+    background-color: transparent !important;
+    z-index: 9 !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 2px;
+    text-shadow: 2px 2px #000;
+}
+.leaflet-control {
+    margin-right: 50px !important;
+}
+.leaflet-control-layers {
+    margin-right: 10px !important;
+}
+.no-arrow-bg.leaflet-tooltip-top:before,
+.no-arrow-bg.leaflet-tooltip-bottom:before,
+.no-arrow-bg.leaflet-tooltip-left:before,
+.no-arrow-bg.leaflet-tooltip-right:before {
+    position: absolute;
+    pointer-events: none;
+    border: 0px solid transparent !important;
+    background: transparent !important;
+    content: '';
+}
+
+.leaflet-popup-content-wrapper {
+}
+
+//
+.close-boudingbox-list {
+    position: absolute;
+    top: 0px;
+    right: -28px;
+    background: #fff;
+    padding: 11px 6px;
+    cursor: pointer;
+    .close-icon {
+        transition: opacity 0.4s linear;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

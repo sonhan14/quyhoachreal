@@ -1,0 +1,18 @@
+.modal-auth {
+    top: 40%;
+    .modal-auth-container {
+        .btn-auth {
+            display: flex;
+            justify-content: space-between;
+            .btn-register{
+                width: 48%;
+                height: 60px;
+            }
+            .btn-login{
+                width: 48%;
+                height: 60px;
+            }
+        }
+    }
+   
+}

@@ -1,0 +1,7 @@
+export const DATA_TYPE = {
+    FLYCAM_VIDEO: 'VIDEO_FLYCAM',
+    VIDEO: 'VIDEO',
+    FLYCAM: 'FLYCAM',
+    GROUND_IMAGES: 'ANH_MAT_DAT',
+    IMAGE_360: '360',
+};

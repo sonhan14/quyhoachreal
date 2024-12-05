@@ -1,0 +1,22 @@
+.header-container {
+    .header-logo {
+        // .header-logo-img {
+
+        // }    
+
+        .header-logo-content {
+            color: #FF571A;
+            margin-left: 4px;
+        }
+    }
+    .list-item {
+        .list-item-icon {
+            gap: 20px;
+            display: flex;
+            .nav-link {
+                text-align: center;
+                align-items: center;
+            }
+        }
+    }
+}

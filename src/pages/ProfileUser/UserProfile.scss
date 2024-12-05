@@ -1,0 +1,101 @@
+// UserProfile.scss
+.user-profile {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #262D34;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
+  
+    .profile-header {
+      text-align: center;
+      margin-bottom: 20px;
+  
+      .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #858EAD;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+        @media (max-width: 480px) {
+          width: 120px;
+          height: 120px;
+        }
+      }
+  
+      .full-name {
+        margin-top: 10px;
+        font-size: 24px;
+        color: #858EAD;
+  
+        @media (max-width: 480px) {
+          font-size: 20px;
+        }
+      }
+    }
+  
+    .profile-content {
+      .bio {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: center;
+  
+        @media (max-width: 480px) {
+          font-size: 14px;
+        }
+      }
+  
+      .info-user {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+  
+        .info-item {
+          padding: 10px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          background-color: #2C353D;
+          color: #858EAD;
+  
+          @media (max-width: 480px) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+  
+          .icon {
+            font-size: 20px;
+            margin-right: 10px;
+  
+            @media (max-width: 480px) {
+              margin-bottom: 5px;
+            }
+          }
+  
+          .label {
+            font-weight: bold;
+            margin-right: 5px;
+          }
+  
+          .value {
+            color: #666;
+  
+            @media (max-width: 480px) {
+              margin-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }

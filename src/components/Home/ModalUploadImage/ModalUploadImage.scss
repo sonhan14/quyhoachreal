@@ -1,0 +1,220 @@
+.title--uploadImage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    & p {
+        margin: 0;
+    }
+}
+
+.modal--upload__content {
+    .upload--container {
+        width: 100%;
+        padding: 4px 0;
+        background-color: #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: opacity 0.3 ease;
+        margin-bottom: 26px;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        & p {
+            margin: 0;
+            color: #1eacd9;
+            text-decoration: underline;
+            text-align: center;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 26px;
+        }
+    }
+
+    .content--container {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        margin: 0 auto;
+        .content--input__image {
+            width: 100%;
+
+            & .button-image {
+                background-color: #10b700;
+                display: flex;
+                color: #fff;
+                font-weight: 700;
+                font-size: 1rem;
+                line-height: 23px;
+                text-align: center;
+                margin: 0 0 0 2px;
+                padding: 8px 18px;
+                width: 5rem;
+                border-radius: 6px;
+                border: none;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+
+            & input {
+                width: 100%;
+                padding: 4px 8px;
+                border-radius: 6px;
+            }
+
+            & .content__images {
+                margin-top: 18px;
+            }
+            
+            & .content__images .content__image {
+                height: 150px;
+                object-fit: cover;
+                // transition: all 0.3 ease-in-out;
+
+              
+            }
+            & .ant-image {
+                width: 100%;
+                // margin: 0 10px;
+            }
+    
+            & .slick-slide > div {
+                margin: 0 10px;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+        }
+
+        .content__link {
+            box-shadow: 8px 4px 20px 0px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            color: #000;
+            padding: 5px;
+            gap: 8px;
+            border-radius: 10px;
+            .content__link--box {
+                width: 90px;
+                height: 70px;
+                border-radius: 10px;
+                background-color: #cdaaaa;
+            }
+            & span {
+                flex: 1;
+            }
+        }
+        .content__price {
+            color: #fff;
+            background-color: #3e6b00;
+            width: 100%;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 6px;
+            padding: 0 24px;
+            & label {
+                display: block;
+                font-weight: 400;
+                line-height: 26px;
+                font-size: 1rem;
+            }
+            & input {
+                flex: 1;
+                text-align: left;
+                padding: 0 8px;
+            }
+
+            & input[type='number'] {
+                background-color: transparent;
+                border: none;
+                color: inherit;
+                flex: 1;
+                -moz-appearance: textfield;
+            }
+
+            & input[type='number']::-webkit-outer-spin-button,
+            & input[type='number']::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            & input[type='number']:focus-visible {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .content__location {
+            color: #000;
+            background-color: #c9c9c9;
+            width: 100%;
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 6px;
+            padding: 0 24px;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+        .content__description {
+            color: #000;
+            background-color: #c9c9c9;
+            width: 100%;
+            height: 80px;
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-radius: 6px;
+            padding: 0 24px;
+            font-weight: 400;
+            font-size: 1rem;
+
+            & textarea {
+                flex: 1;
+                text-align: left;
+                // padding: 0 4px;
+            }
+        }
+        & .filterByHouse {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            & label {
+                margin: 0 !important;
+            }
+        }
+    }
+    .modal--upload--button {
+        background-color: #10b700;
+        display: flex;
+        margin: 0 auto;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 23px;
+        text-align: center;
+        // margin-top: 100px;
+        padding: 8px 53px;
+        border-radius: 10px;
+        border: none;
+        transition: opacity 0.3s ease;
+        margin-top: 24px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

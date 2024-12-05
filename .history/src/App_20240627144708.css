@@ -1,0 +1,364 @@
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import './Auction.scss'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useEffect, useState } from "react";
+import { useDebounce } from "../Hooks/useDebounce";
+import { fetchDistrictsByProvinces, fetchFilteredAuctions, fetchProvinces } from "../../services/api";
+import { MapContainer, TileLayer } from "react-leaflet";
+
+
+
+
+const Auction = () => {
+    const [formData, setFormData] = useState({
+        assetName: '',
+        organization: '',
+        ownerName: '',
+        province: '',
+        district: '',
+        fromDateAuction: '',
+        toDateAuction: '',
+        fromDateAnnouncement: '',
+        toDateAnnouncement: '',
+        fromPrice: '',
+        toPrice: '',
+        sortOption: ''
+      });
+
+      
+    //State
+      const [province, setProvince] = useState([])
+      const [district, setDistrict] = useState([])
+      const [selectedProvinceId, setSelectedProvinceId] = useState('')
+      const [auctionResults, setAuctionResults] = useState([])
+      const debouncedData = useDebounce(formData, 1000)
+      const [hanoiCoordinates, setHanoiCoordinates] = useState([21.0285, 105.8542]);
+
+      useEffect(() => {
+        // api provinces
+        const fetchProvincesData = async () => {
+          const data = await fetchProvinces()
+          setProvince(data)
+        }
+        fetchProvincesData()
+        // api district
+        const fetchDistrictsData = async () => {
+          if (selectedProvinceId) {
+            const districtsData = await fetchDistrictsByProvinces(selectedProvinceId);
+            setDistrict(districtsData);
+            console.log(districtsData);
+          }
+        };
+    
+        fetchDistrictsData();
+      },[selectedProvinceId])
+    
+      const handleChange = async (e) => {
+        const {name, value} = e.target
+        setFormData({
+          ...formData,
+          [name]: value
+        });
+        if(name === 'province'){
+          setSelectedProvinceId(value)
+          setDistrict([])
+        }
+    
+      };
+
+    //   const validateForm = () =>{
+    //     for(let key in formData){
+    //         if(formData[key] === ''){
+    //             return false
+    //         }
+    //     }
+    //     return true 
+    //   }
+    
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const startTime = formData.fromDateAuction ? new Date(formData.fromDateAuction).toISOString() : null;
+        const endTime = formData.toDateAuction ? new Date(formData.toDateAuction).toISOString() : null;
+        const results = await fetchFilteredAuctions(startTime, endTime);
+        setAuctionResults(results.data);
+        console.log('results data', results);
+        console.log('time', startTime);
+      };
+      
+
+    
+    return (
+        <Container>
+            <div className="auction-container-form">
+                <div className=" text-auction">
+                    <span className="icon-auction">
+                    <svg width="50" height="50" viewBox="0 0 50 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 53.3234H28.4057" stroke="#B7A800" strokeWidth="5" strokeLinecap="round" stroke-linejoin="round"/>
+                        <path d="M25.0183 53.3234V43.3234H6.38745V53.3234" stroke="#B7A800" strokeWidth="5" strokeLinecap="round" stroke-linejoin="round"/>
+                        <path d="M27.6832 4.17157L15.5391 18.5117C14.2163 20.0738 14.2163 22.6064 15.5391 24.1686L20.9045 30.5042C22.2274 32.0663 24.3722 32.0663 25.6951 30.5042L37.839 16.1641C39.1621 14.602 39.1621 12.0693 37.839 10.5072L32.4737 4.17157C31.1508 2.60948 29.006 2.60948 27.6832 4.17157Z" stroke="#B7A800" strokeWidth="5" strokeLinecap="round" stroke-linejoin="round"/>
+                        <path d="M31.7931 23.3235L47.0365 41.3234" stroke="#B7A800" strokeWidth="5" strokeLinecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </span>
+                    <h2>Thông báo đấu giá</h2>
+                </div>
+            </div>
+            <div className=" auction-content">
+                {/* Auction Map */}
+                <div className="auction-map">
+                    <MapContainer center={hanoiCoordinates} zoom={13} style={{ height: "100%", width: "100%" }}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                    </MapContainer>
+                </div>
+                {/* Auction Form */}
+                <div className="auction-form" >
+                    <Form onSubmit={handleSubmit}>
+                        <Row>
+                        <Col xs={12} sm={12}> 
+                            <Form.Group as={Row} className="mb-2" controlId="formAssetName">
+                            <Form.Label column sm={2}>Tên tài sản</Form.Label>
+                            <Col sm={10} >
+                                <Form.Control 
+                                type="text" 
+                                name="assetName" 
+                                value={formData.assetName} 
+                                onChange={handleChange} 
+                                placeholder="Tên tài sản"
+                                />
+                            </Col>
+                            </Form.Group>
+                        </Col>
+                    {/* left */}
+                        <Col sm={6}>
+                            <Form.Group as={Row} className="mb-2" controlId="formOrganization">
+                            <Form.Label column sm={4}>Tổ chức ĐGTS</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                as="select" 
+                                name="organization" 
+                                value={formData.organization} 
+                                onChange={handleChange}
+                                >
+                                <option value={'tất cả'}>Tất cả</option>
+                                <option>tổ chức 1</option>
+
+                                </Form.Control>
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formFromDateAuction">
+                            <Form.Label column sm={4}>Từ ngày</Form.Label>
+                            <Col sm={8}>
+                                {/* <Form.Control 
+                                type="date" 
+                                name="fromDateAuction" 
+                                value={formData.fromDateAuction} 
+                                onChange={handleChange}
+                                /> */}
+                                <DatePicker
+                                selected={formData.fromDateAuction ? new Date(formData.fromDateAuction) : null}
+                                onChange={(date) => handleChange({ target: { name: "fromDateAuction", value: date } })}
+                                placeholderText="Thời gian tổ chức việc đấu giá"
+                                className="form-control"
+                                dateFormat="dd/MM/yyyy"
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formToDateAuction">
+                            <Form.Label column sm={4}>Đến ngày</Form.Label>
+                            <Col sm={8}>
+                                {/* <Form.Control 
+                                type="date" 
+                                name="toDateAuction" 
+                                value={formData.toDateAuction} 
+                                onChange={handleChange}
+                                /> */}
+                                <DatePicker
+                                selected={formData.toDateAuction ? new Date(formData.toDateAuction) : null}
+                                onChange={(date) => handleChange({ target: { name: "toDateAuction", value: date } })}
+                                placeholderText="Thời gian tổ chức việc đấu giá"
+                                className="form-control"
+                                dateFormat="dd/MM/yyyy"
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formFromPrice">
+                            <Form.Label column sm={4}>Giá khởi điểm từ</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                type="number" 
+                                name="fromPrice" 
+                                value={formData.fromPrice} 
+                                onChange={handleChange} 
+                                placeholder="Giá khởi điểm từ" 
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formToPrice">
+                            <Form.Label column sm={4}>Giá khởi điểm đến</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                type="number" 
+                                name="toPrice" 
+                                value={formData.toPrice} 
+                                onChange={handleChange} 
+                                placeholder="Giá khởi điểm đến" 
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formSortOption">
+                            <Form.Label column sm={4}>Tiêu chí sắp xếp</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                as="select" 
+                                name="sortOption" 
+                                value={formData.sortOption} 
+                                onChange={handleChange}
+                                >
+                                <option value={'Ngày công khai việc đấu giá'}>Ngày công khai việc đấu giá</option>
+                                <option>Ngày tổ chức đấu giá</option>
+                                </Form.Control>
+                            </Col>
+                            </Form.Group>
+                        </Col>
+                    {/* right */}
+                        <Col sm={6}>
+                            <Form.Group as={Row} className="mb-2" controlId="formOwnerName">
+                            <Form.Label column sm={4}>Người có tài sản</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                type="text" 
+                                name="ownerName" 
+                                value={formData.ownerName} 
+                                onChange={handleChange} 
+                                placeholder="Họ và tên người có tài sản" 
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formProvince">
+                            <Form.Label column sm={4}>Tỉnh thành</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                as="select" 
+                                name="province" 
+                                value={formData.province} 
+                                onChange={(e) => {
+                                    const selectedProvinceId = e.target.value;
+                                    setSelectedProvinceId(selectedProvinceId);
+                                    handleChange(e)
+                                }}
+                                >
+                                <option>Tất cả</option>
+                                {province.map((province, index)=>(
+                                    <option key={index} value={province.TinhThanhPhoID}>{province.TenTinhThanhPho}</option>
+                                ))}
+                                </Form.Control>
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formDistrict">
+                            <Form.Label column sm={4}>Quận/huyện</Form.Label>
+                            <Col sm={8}>
+                                <Form.Control 
+                                as="select" 
+                                name="district" 
+                                value={formData.district} 
+                                onChange={handleChange}
+                                disabled={!formData.province}
+                                >
+                                <option>Tất cả</option>
+                                {district.map((district, index)=>(
+                                    <option key={index} value={district.DistrictID}>{district.DistrictName}</option>
+                                ))}
+                                </Form.Control>
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formFromDateAnnouncement">
+                            <Form.Label column sm={4}>Từ ngày</Form.Label>
+                            <Col sm={8}>
+                                {/* <Form.Control 
+                                type="date" 
+                                name="fromDateAnnouncement" 
+                                value={formData.fromDateAnnouncement} 
+                                onChange={handleChange}
+                                /> */}
+                                <DatePicker
+                                selected={formData.fromDateAnnouncement ? new Date(formData.fromDateAnnouncement) : null}
+                                onChange={(date) => handleChange({ target: { name: "fromDateAnnouncement", value: date } })}
+                                placeholderText="Thời gian công khai việc đấu giá"
+                                className="form-control"
+                                dateFormat="dd/MM/yyyy"
+                                />
+                            </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-2" controlId="formToDateAnnouncement">
+                            <Form.Label column sm={4}>Đến ngày</Form.Label>
+                            <Col sm={8}>
+                                {/* <Form.Control 
+                                type="date" 
+                                name="toDateAnnouncement" 
+                                value={formData.toDateAnnouncement} 
+                                onChange={handleChange}
+                                /> */}
+                                <DatePicker
+                                selected={formData.toDateAnnouncement ? new Date(formData.toDateAnnouncement) : null}
+                                onChange={(date) => handleChange({ target: { name: "toDateAnnouncement", value: date } })}
+                                placeholderText="Thời gian công khai việc đấu giá"
+                                className="form-control"
+                                dateFormat="dd/MM/yyyy"
+                                
+                                />
+                            </Col>
+                            </Form.Group>
+                        </Col>
+                        </Row>
+                <div className="text-center">
+                <Button variant="primary" type="submit">Tìm kiếm</Button>
+                </div>
+            </Form>
+            </div>
+        </div>
+        <div className="search-results">
+            <div className="text-search">
+                <h2>Danh sách tìm kiếm</h2>
+            </div>
+            <div className="list-search-result">
+               {
+                auctionResults.length > 0 ? (
+                    auctionResults.map((e, index)=>(
+                        <div className="search-container">
+                            <div className="description-search">
+                                <p>{e.data.NamePropertyOwner}</p>
+                            </div>
+                            <div className="img-search">
+                                <img src={e.img1} alt=""/>
+                                <img src={e.img2} alt=""/>
+                                <img src={e.img2} alt=""/>
+                            </div>
+                        </div>
+                        
+                    ))
+                ) : (
+                    <p>Không có bản ghi</p>
+                )
+               }
+            </div>
+        </div>
+                        
+        </Container>
+
+    )
+}
+
+export default Auction;

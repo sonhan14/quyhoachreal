@@ -1,0 +1,11 @@
+.slider-container{
+    .slider-container-range {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        input {
+            color: linear-gradient(#FF4401, #992901);
+        }
+    }
+}

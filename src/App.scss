@@ -1,0 +1,224 @@
+/* giao diện Mobile */
+
+@media (max-width: 768px) {
+    .app-content {
+        overflow: auto;
+    }
+
+    .collapse:not(.show) {
+        display: flow;
+    }
+
+    .container {
+        .navbar-brand {
+            order: 1;
+        }
+
+        .navbar-collapse {
+            display: grid;
+            order: 3;
+
+            .list-item-icon {
+                /* ngang hàng  */
+                flex-direction: row;
+                order: 2;
+
+                .Mobi-nav {
+                    display: flex;
+                }
+
+                .Mobi-nav-link {
+                    /* margin-right: 15px !important; */
+                    margin-left: 115px;
+                    display: flex;
+                }
+            }
+
+            .header-search {
+                margin: 15px 0 15px 90px;
+                width: 250px;
+                order: 1;
+            }
+
+            .header-bell {
+                order: 2;
+            }
+        }
+
+        #basic-navbar-nav {
+            order: 2;
+        }
+    }
+
+    .Mobi-nav-link {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .Mobi-nav-link.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .Mobi-nav-link.hide {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .one {
+        display: none;
+    }
+
+    .btn-register,
+    .btn-login {
+        width: 40% !important;
+        height: 50px !important;
+    }
+
+    .container-header {
+        top: auto !important;
+        bottom: 150px;
+    }
+
+    .container-header-select {
+        display: grid;
+    }
+
+    .slider-container-location {
+        /* order: 1; */
+    }
+
+    .show-mobi {
+        display: none !important;
+    }
+
+    .container-header-select {
+        display: grid !important;
+
+        .header-select_web {
+            display: flex;
+            order: 2;
+
+            .slider-container-range {
+                height: 36px;
+            }
+
+            .Show-price {
+                margin-left: 70px;
+            }
+        }
+    }
+
+    .slider-container-location {
+        width: 370px !important;
+    }
+
+    .slider-container_web {
+        display: flex;
+    }
+
+    .nav-icon {
+        flex-direction: row !important;
+        width: 550px !important;
+
+        .nav-icon-flag-delete {
+            flex-direction: row !important;
+            width: 80px !important;
+            height: 32px !important;
+        }
+    }
+
+    .slider-container {
+        bottom: 5px;
+        top: auto !important;
+        right: -3px !important;
+    }
+
+    .PriceFilter {
+        width: 390px;
+    }
+
+    .modal-Price-Filter {
+        top: 50%;
+        left: 3.7%;
+    }
+
+    .modal-content {
+        left: 16px;
+        width: 90%;
+    }
+
+    .modal-DownMenu-title {
+        padding-left: 70px !important;
+    }
+
+    /* ============ */
+
+    .slider-container_web {
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: 10px;
+        cursor: grab;
+        height: 36px;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .slider-container-location {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .two,
+    .Mobi-nav-svg {
+        display: block !important;
+    }
+
+    .slider-web,
+    .web-slider {
+        display: flex !important;
+    }
+}
+
+//
+
+// common
+
+.user-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.image-full {
+    width: 100%;
+}
+.content-full {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.container-header {
+    top: auto !important;
+    bottom: 70px;
+}
+@media (min-width: 768px) {
+    .container-header {
+        top: 0 !important;
+        bottom: unset;
+    }
+}
