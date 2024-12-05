@@ -1,5 +1,6 @@
 import Header from './components/Header/Header';
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Outlet, RouterProvider, createBrowserRouter, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import './index.css';
 import './App.scss';
 import './styles/map.scss';
