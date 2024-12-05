@@ -27,6 +27,7 @@ import AuctionInfor from './components/Auction/AuctionInfor';
 import LatestNews from './components/News/categorizeNews/LatestNews';
 import HotNews from './components/News/categorizeNews/HotNews';
 import useWindowSize from './hooks/useWindowSise.js';
+import { pageView } from './index';
 
 const Layout = () => {
     const windowSize = useWindowSize();
